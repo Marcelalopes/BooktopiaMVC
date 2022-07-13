@@ -68,10 +68,10 @@
             {
                 <tr id="tabela-aluguel">
                     <td>
-                        @Html.DisplayFor(modelItem => item.Multa)
+                        @Html.DisplayFor(modelItem => item.ClienteId)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValorTotal)
+                        @Html.DisplayFor(modelItem => item.LivroId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DataAluguel)
@@ -80,11 +80,12 @@
                         @Html.DisplayFor(modelItem => item.DataDevolucao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ClienteId)
+                        @Html.DisplayFor(modelItem => item.Multa)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LivroId)
-                    </td>
+                        @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>                
+                    
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

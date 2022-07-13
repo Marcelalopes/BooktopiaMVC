@@ -48,6 +48,10 @@ namespace MVCBooktopia.Controllers
         // GET: AluguelModels/Create
         public IActionResult Create()
         {
+            var clientes = _context.ClientesModel.ToList();
+            ViewData["ClienteId"] = new SelectList(clientes, "Id", "Nome");
+            var livros = _context.LivrosModel.ToList();
+            ViewData["LivroId"] = new SelectList(livros, "Id", "Titulo");
             return View();
         }
 
@@ -56,7 +60,7 @@ namespace MVCBooktopia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DataAluguel,ClienteId,LivroId")] AluguelModel aluguelModel)
+        public async Task<IActionResult> Create(AluguelModel aluguelModel)
         {
             
             aluguelModel.Id = Guid.NewGuid();

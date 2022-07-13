@@ -4,6 +4,7 @@ using MVCBooktopia.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCBooktopia.Migrations
 {
     [DbContext(typeof(MVCBooktopiaContext))]
-    partial class MVCBooktopiaContextModelSnapshot : ModelSnapshot
+    [Migration("20220713201556_table-login")]
+    partial class tablelogin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
