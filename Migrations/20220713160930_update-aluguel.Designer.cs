@@ -4,6 +4,7 @@ using MVCBooktopia.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCBooktopia.Migrations
 {
     [DbContext(typeof(MVCBooktopiaContext))]
-    partial class MVCBooktopiaContextModelSnapshot : ModelSnapshot
+    [Migration("20220713160930_update-aluguel")]
+    partial class updatealuguel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,9 +38,6 @@ namespace MVCBooktopia.Migrations
 
                     b.Property<DateTime?>("DataDevolucao")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("Devolvido")
-                        .HasColumnType("bit");
 
                     b.Property<Guid>("LivroId")
                         .HasColumnType("uniqueidentifier");
@@ -144,7 +143,7 @@ namespace MVCBooktopia.Migrations
             modelBuilder.Entity("MVCBooktopia.Models.AluguelModel", b =>
                 {
                     b.HasOne("MVCBooktopia.Models.ClienteModel", "Cliente")
-                        .WithMany("AlugueisList")
+                        .WithMany()
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -158,11 +157,6 @@ namespace MVCBooktopia.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("Livro");
-                });
-
-            modelBuilder.Entity("MVCBooktopia.Models.ClienteModel", b =>
-                {
-                    b.Navigation("AlugueisList");
                 });
 #pragma warning restore 612, 618
         }

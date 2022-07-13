@@ -1,0 +1,98 @@
+﻿@model IEnumerable<MVCBooktopia.Models.AluguelModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr id="tabela-aluguel">
+            
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LivroId)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.DataAluguel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDevolucao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Multa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            @if (item.Devolvido == true)
+            {
+                 <tr id="tabela-aluguel" class="table-active">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClienteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LivroId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataAluguel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataDevolucao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Multa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr id="tabela-aluguel">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Multa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataAluguel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataDevolucao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClienteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LivroId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            
+        }
+    </tbody>
+</table>

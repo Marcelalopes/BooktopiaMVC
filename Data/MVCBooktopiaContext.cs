@@ -17,5 +17,7 @@ namespace MVCBooktopia.Data
         public DbSet<MVCBooktopia.Models.ClienteModel>? ClientesModel { get; set; }
 
         public DbSet<MVCBooktopia.Models.LivroModel>? LivrosModel { get; set; }
+
+        public DbSet<MVCBooktopia.Models.AluguelModel>? AlugueisModel { get; set; }
     }
 }

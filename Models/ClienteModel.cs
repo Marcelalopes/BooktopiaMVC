@@ -21,5 +21,7 @@ namespace MVCBooktopia.Models
         public string Bairro { get; set; }
         [MaxLength(50)]
         public string Cidade { get; set; }
+
+        public List<AluguelModel> AlugueisList { get; set; }
     }
 }
