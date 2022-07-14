@@ -403,7 +403,7 @@ namespace MVCBooktopia.Migrations
                         .IsRequired();
 
                     b.HasOne("MVCBooktopia.Models.LivroModel", "Livro")
-                        .WithMany()
+                        .WithMany("Alugueis")
                         .HasForeignKey("LivroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -416,6 +416,11 @@ namespace MVCBooktopia.Migrations
             modelBuilder.Entity("MVCBooktopia.Models.ClienteModel", b =>
                 {
                     b.Navigation("AlugueisList");
+                });
+
+            modelBuilder.Entity("MVCBooktopia.Models.LivroModel", b =>
+                {
+                    b.Navigation("Alugueis");
                 });
 #pragma warning restore 612, 618
         }

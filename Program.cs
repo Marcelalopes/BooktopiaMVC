@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MVCBooktopiaContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCBooktopiaContext") ?? throw new InvalidOperationException("Connection string 'MVCBooktopiaContext' not found.")));
+    options.UseLazyLoadingProxies()
+    .UseSqlServer(builder.Configuration.GetConnectionString("MVCBooktopiaContext") ?? throw new InvalidOperationException("Connection string 'MVCBooktopiaContext' not found.")));
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<MVCBooktopiaContext>();
 

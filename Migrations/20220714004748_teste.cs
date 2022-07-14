@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MVCBooktopia.Migrations
 {
-    public partial class tablelogin : Migration
+    public partial class teste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,42 @@ namespace MVCBooktopia.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClientesModel",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    CEP = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    Logradouro = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Numero = table.Column<int>(type: "int", nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Cidade = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClientesModel", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LivrosModel",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Titulo = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DataLancamento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Categoria = table.Column<int>(type: "int", nullable: false),
+                    Autor = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Valor = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LivrosModel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +190,46 @@ namespace MVCBooktopia.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AlugueisModel",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Multa = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    ValorTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    DataAluguel = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LivroId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Devolvido = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AlugueisModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AlugueisModel_ClientesModel_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "ClientesModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AlugueisModel_LivrosModel_LivroId",
+                        column: x => x.LivroId,
+                        principalTable: "LivrosModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AlugueisModel_ClienteId",
+                table: "AlugueisModel",
+                column: "ClienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AlugueisModel_LivroId",
+                table: "AlugueisModel",
+                column: "LivroId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -197,6 +273,9 @@ namespace MVCBooktopia.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AlugueisModel");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -210,6 +289,12 @@ namespace MVCBooktopia.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ClientesModel");
+
+            migrationBuilder.DropTable(
+                name: "LivrosModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

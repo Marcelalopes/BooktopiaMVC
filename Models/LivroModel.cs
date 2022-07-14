@@ -17,5 +17,7 @@ namespace MVCBooktopia.Models
         public string Autor { get; set; }
         [DataType(DataType.Currency)]
         public decimal Valor { get; set; }
+
+        public virtual List<AluguelModel> Alugueis { get; set; }
     }
 }

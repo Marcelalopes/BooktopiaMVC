@@ -22,6 +22,6 @@ namespace MVCBooktopia.Models
         [MaxLength(50)]
         public string Cidade { get; set; }
 
-        public List<AluguelModel> AlugueisList { get; set; }
+        public virtual List<AluguelModel> AlugueisList { get; set; }
     }
 }

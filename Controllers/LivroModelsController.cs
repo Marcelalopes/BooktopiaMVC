@@ -58,13 +58,10 @@ namespace MVCBooktopia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,DataLancamento,Categoria,Autor,Valor")] LivroModel livroModel)
         {
-            if (ModelState.IsValid)
-            {
-                livroModel.Id = Guid.NewGuid();
-                _context.Add(livroModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            livroModel.Id = Guid.NewGuid();
+            _context.Add(livroModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             return View(livroModel);
         }
 

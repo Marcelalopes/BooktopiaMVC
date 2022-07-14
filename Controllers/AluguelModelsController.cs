@@ -102,6 +102,21 @@ namespace MVCBooktopia.Controllers
             try
             {
                 aluguelModel.Devolvido = true;
+                aluguelModel.DataDevolucao = DateTime.Now;
+                TimeSpan diasCorridos = (TimeSpan)(aluguelModel.DataDevolucao - aluguelModel.DataAluguel);
+                if (diasCorridos.Days > 10)
+                {
+                    int diasPassados = diasCorridos.Days - 10;
+                    aluguelModel.Multa =(decimal) 1.00 * diasPassados;
+                }
+                else
+                {
+                    aluguelModel.Multa = 0;
+                }
+                var livro = _context.LivrosModel.Find(aluguelModel.LivroId);
+                decimal valorLivro = livro.Valor;
+                aluguelModel.ValorTotal = valorLivro + aluguelModel.Multa;                
+               
                 _context.Update(aluguelModel);
                 await _context.SaveChangesAsync();
             }
@@ -156,6 +171,7 @@ namespace MVCBooktopia.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool AluguelModelExists(Guid id)
         {

@@ -11,7 +11,7 @@ namespace MVCBooktopia.Data
 {
     public class MVCBooktopiaContext : IdentityDbContext<IdentityUser>
     {
-        public MVCBooktopiaContext (DbContextOptions<MVCBooktopiaContext> options)
+        public MVCBooktopiaContext(DbContextOptions<MVCBooktopiaContext> options)
             : base(options)
         {
         }
@@ -24,10 +24,10 @@ namespace MVCBooktopia.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<MVCBooktopia.Models.ClienteModel>? ClientesModel { get; set; }
+        public DbSet<ClienteModel>? ClientesModel { get; set; }
 
-        public DbSet<MVCBooktopia.Models.LivroModel>? LivrosModel { get; set; }
+        public DbSet<LivroModel>? LivrosModel { get; set; }
 
-        public DbSet<MVCBooktopia.Models.AluguelModel>? AlugueisModel { get; set; }
+        public DbSet<AluguelModel>? AlugueisModel { get; set; }
     }
 }
