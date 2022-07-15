@@ -58,7 +58,7 @@ namespace MVCBooktopia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Email,CPF,CEP,Logradouro,Numero,Bairro,Cidade")] ClienteModel clienteModel)
+        public async Task<IActionResult> Create(ClienteModel clienteModel)
         {
             
                 clienteModel.Id = Guid.NewGuid();
@@ -90,33 +90,30 @@ namespace MVCBooktopia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Email,CPF,CEP,Logradouro,Numero,Bairro,Cidade")] ClienteModel clienteModel)
+        public async Task<IActionResult> Edit(Guid id, ClienteModel clienteModel)
         {
             if (id != clienteModel.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(clienteModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ClienteModelExists(clienteModel.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(clienteModel);
+                await _context.SaveChangesAsync();
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ClienteModelExists(clienteModel.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+            
             return View(clienteModel);
         }
 

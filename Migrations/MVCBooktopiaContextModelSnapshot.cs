@@ -257,7 +257,7 @@ namespace MVCBooktopia.Migrations
 
                     b.HasIndex("LivroId");
 
-                    b.ToTable("AlugueisModel");
+                    b.ToTable("AlugueisModel", (string)null);
                 });
 
             modelBuilder.Entity("MVCBooktopia.Models.ClienteModel", b =>
@@ -306,7 +306,7 @@ namespace MVCBooktopia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ClientesModel");
+                    b.ToTable("ClientesModel", (string)null);
                 });
 
             modelBuilder.Entity("MVCBooktopia.Models.LivroModel", b =>
@@ -340,7 +340,7 @@ namespace MVCBooktopia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LivrosModel");
+                    b.ToTable("LivrosModel", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

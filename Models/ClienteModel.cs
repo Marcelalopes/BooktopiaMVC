@@ -9,10 +9,12 @@ namespace MVCBooktopia.Models
         [MaxLength(50)]
         public string Nome { get; set; }
         [MaxLength(50)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [MaxLength(14)]
         public string CPF { get; set; }
         [MaxLength(9)]
+        [DataType(DataType.PostalCode)]
         public string CEP { get; set; }
         [MaxLength(50)]
         public string Logradouro { get; set; }

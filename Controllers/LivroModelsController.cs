@@ -58,7 +58,7 @@ namespace MVCBooktopia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,DataLancamento,Categoria,Autor,Valor")] LivroModel livroModel)
+        public async Task<IActionResult> Create(LivroModel livroModel)
         {
             livroModel.Id = Guid.NewGuid();
             _context.Add(livroModel);
@@ -88,33 +88,30 @@ namespace MVCBooktopia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Titulo,Descricao,DataLancamento,Categoria,Autor,Valor")] LivroModel livroModel)
+        public async Task<IActionResult> Edit(Guid id, LivroModel livroModel)
         {
             if (id != livroModel.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(livroModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!LivroModelExists(livroModel.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(livroModel);
+                await _context.SaveChangesAsync();
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LivroModelExists(livroModel.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+            
             return View(livroModel);
         }
 

@@ -10,39 +10,27 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Devolver">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
+                <input type="hidden" asp-for="ClienteId" />
                 <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
+                <input asp-for="ClienteId" class="form-control" disabled />
                 <span asp-validation-for="ClienteId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <input type="hidden" asp-for="LivroId" />
                 <label asp-for="LivroId" class="control-label"></label>
-                <input asp-for="LivroId" class="form-control" />
+                <input asp-for="LivroId" class="form-control" disabled />
                 <span asp-validation-for="LivroId" class="text-danger"></span>
             </div>            
             <div class="form-group">
+                <input type="hidden" asp-for="DataAluguel" />
                 <label asp-for="DataAluguel" class="control-label"></label>
-                <input asp-for="DataAluguel" class="form-control" />
+                <input asp-for="DataAluguel" class="form-control" disabled />
                 <span asp-validation-for="DataAluguel" class="text-danger"></span>
             </div>
-            <!-- <div class="form-group">
-                <label asp-for="DataDevolucao" class="control-label"></label>
-                <input asp-for="DataDevolucao" class="form-control" required />
-                <span asp-validation-for="DataDevolucao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Multa" class="control-label"></label>
-                <input asp-for="Multa" class="form-control" />
-                <span asp-validation-for="Multa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorTotal" class="control-label"></label>
-                <input asp-for="ValorTotal" class="form-control" required/>
-                <span asp-validation-for="ValorTotal" class="text-danger"></span>
-            </div> -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

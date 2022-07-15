@@ -74,7 +74,7 @@ namespace MVCBooktopia.Controllers
         }
 
         // GET: AluguelModels/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Devolver(Guid? id)
         {
             if (id == null || _context.AlugueisModel == null)
             {
@@ -94,7 +94,7 @@ namespace MVCBooktopia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Multa,ValorTotal,DataAluguel,DataDevolucao,ClienteId,LivroId, Devolvido")] AluguelModel aluguelModel)
+        public async Task<IActionResult> Devolver(Guid id, AluguelModel aluguelModel)
         {
             if (id != aluguelModel.Id)
             {
@@ -134,7 +134,7 @@ namespace MVCBooktopia.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-            return View(aluguelModel);
+            //return View(aluguelModel);
         }
 
         // GET: AluguelModels/Delete/5
@@ -178,6 +178,6 @@ namespace MVCBooktopia.Controllers
         private bool AluguelModelExists(Guid id)
         {
           return (_context.AlugueisModel?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+        }        
     }
 }
