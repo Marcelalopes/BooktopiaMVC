@@ -5,10 +5,10 @@
 }
 
 
-<div class="row" style="background-color:#DEB887;">
+<div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Crie uma nova conta.</h2>
+            <h2 class="text-light">Crie uma nova conta.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">
@@ -26,12 +26,19 @@
                 <label asp-for="Input.ConfirmPassword">Confirme a senha</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div><br />
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Cadastrar</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-dark">Cadastrar</button>
+            <div>
+                <p> 
+                    <a class="text-dark text-decoration-none" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Já tenho uma conta</a>
+                </p>
+            </div>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
+    <div class="col-md-3"></div>
+    <div class="col-md-3 col-md-offset-2">
         <section>
-            <img alt="Freepik.com" src="https://img.freepik.com/fotos-gratis/composicao-do-dia-do-livro-do-mundo-criativo_23-2148883781.jpg?t=st=1657827911~exp=1657828511~hmac=6421d943134b32118297381581264bb7c90adf8a328beaad346dcdfad4da2111&w=740">           
+            <div style="height:50px"></div>
+            <img src="~/css/Imagens/logoHorizontal.png"/>
         </section>
     </div>
 </div>
