@@ -2,15 +2,15 @@
 @model MVCBooktopia.Models.LivroModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Livro";
 }
 
-<h1>Edit</h1>
+<h1 class="text-center text-light">Editar Livro</h1>
 
-<h4>LivroModel</h4>
+<h5>Você tem certeza que deseja editar este livro?</h5>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -24,35 +24,41 @@
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="row">
+                <div class="form-group col">
                 <label asp-for="DataLancamento" class="control-label"></label>
                 <input asp-for="DataLancamento" class="form-control" />
                 <span asp-validation-for="DataLancamento" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col">
                 <label asp-for="Categoria" class="control-label"></label>
                 <select asp-for="Categoria" asp-items="@Html.GetEnumSelectList<CategoriaEnum>()" class="form-control"></select>
                 <span asp-validation-for="Categoria" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Autor" class="control-label"></label>
-                <input asp-for="Autor" class="form-control" />
-                <span asp-validation-for="Autor" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
-                <span asp-validation-for="Valor" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col">
+                    <label asp-for="Autor" class="control-label"></label>
+                    <input asp-for="Autor" class="form-control" />
+                    <span asp-validation-for="Autor" class="text-danger"></span>
+                </div>
+                <div class="form-group col">
+                    <label asp-for="Valor" class="control-label"></label>
+                    <input asp-for="Valor" class="form-control" />
+                    <span asp-validation-for="Valor" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="btn-toolbar text-center" role="group">
+                <div class="form-group btn-group w-50 p-3">
+                    <input type="submit" value="Editar" class="btn btn-dark" />
+                </div>
+                <hr />
+                <div class="btn-group w-50 p-3">
+                    <a class="btn btn-outline-dark" asp-action="Index">Voltar</a>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
