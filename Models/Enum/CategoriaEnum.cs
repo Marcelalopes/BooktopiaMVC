@@ -1,10 +1,22 @@
-﻿namespace MVCBooktopia.Models.Enum
+﻿
+namespace MVCBooktopia.Models.Enum
 {
     public enum CategoriaEnum
     {
-        Acao,
+        Ação,
         Aventura,
-        Infato_Juvenil,
-        Drama
+        InfatoJuvenil,
+        Drama,
+        Contos,
+        Ficção,
+        Horror,
+        Humor,
+        Medieval,
+        Clássico,
+        Contemporâneo,
+        Histórico,
+        Nacional,
+        Poesia,
+        Mistério
     }
 }

@@ -1,13 +1,13 @@
 ﻿@model MVCBooktopia.Models.AluguelModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Devolver Livro";
 }
 
-<h1>Edit</h1>
+<h2>Devolução de Livro</h2>
 
-<h4>AluguelModel</h4>
 <hr />
+<h4>Tem certeza que deseja devolver este livro?</h4>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Devolver">
@@ -16,30 +16,36 @@
             <div class="form-group">
                 <input type="hidden" asp-for="ClienteId" />
                 <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" disabled />
+                <dd class = "col-sm-10">
+                     @Html.DisplayFor(model => model.ClienteId)
+                </dd>
                 <span asp-validation-for="ClienteId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="hidden" asp-for="LivroId" />
                 <label asp-for="LivroId" class="control-label"></label>
-                <input asp-for="LivroId" class="form-control" disabled />
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.LivroId)
+                </dd>
                 <span asp-validation-for="LivroId" class="text-danger"></span>
             </div>            
             <div class="form-group">
                 <input type="hidden" asp-for="DataAluguel" />
                 <label asp-for="DataAluguel" class="control-label"></label>
-                <input asp-for="DataAluguel" class="form-control" disabled />
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.DataAluguel)
+                </dd>
                 <span asp-validation-for="DataAluguel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Devolver" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

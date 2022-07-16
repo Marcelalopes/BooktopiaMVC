@@ -29,6 +29,14 @@ namespace MVCBooktopia.Controllers
                           Problem("Entity set 'MVCBooktopiaContext.LivroModel'  is null.");
         }
 
+        // GET: LivroModels
+        public async Task<IActionResult> Desativados()
+        {
+            return _context.LivrosModel != null ?
+                        View(await _context.LivrosModel.ToListAsync()) :
+                        Problem("Entity set 'MVCBooktopiaContext.LivroModel'  is null.");
+        }
+
         // GET: LivroModels/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -61,10 +69,10 @@ namespace MVCBooktopia.Controllers
         public async Task<IActionResult> Create(LivroModel livroModel)
         {
             livroModel.Id = Guid.NewGuid();
+            livroModel.Ativo = true;
             _context.Add(livroModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-            return View(livroModel);
         }
 
         // GET: LivroModels/Edit/5
@@ -111,50 +119,106 @@ namespace MVCBooktopia.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-            
-            return View(livroModel);
         }
 
-        // GET: LivroModels/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        private bool LivroModelExists(Guid id)
+        {
+          return (_context.LivrosModel?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        // GET: LivroModels/Edit/5
+        public async Task<IActionResult> Desativar(Guid? id)
         {
             if (id == null || _context.LivrosModel == null)
             {
                 return NotFound();
             }
 
-            var livroModel = await _context.LivrosModel
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var livroModel = await _context.LivrosModel.FindAsync(id);
             if (livroModel == null)
             {
                 return NotFound();
             }
-
             return View(livroModel);
         }
 
-        // POST: LivroModels/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: LivroModels/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> Desativar(Guid id, LivroModel livroModel)
         {
-            if (_context.LivrosModel == null)
+            if (id != livroModel.Id)
             {
-                return Problem("Entity set 'MVCBooktopiaContext.LivroModel'  is null.");
+                return NotFound();
             }
-            var livroModel = await _context.LivrosModel.FindAsync(id);
-            if (livroModel != null)
+            try
             {
-                _context.LivrosModel.Remove(livroModel);
+                livroModel.Ativo = false;
+                _context.Update(livroModel);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LivroModelExists(livroModel.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LivroModelExists(Guid id)
+
+        // GET: LivroModels/Edit/5
+        public async Task<IActionResult> Reativar(Guid? id)
         {
-          return (_context.LivrosModel?.Any(e => e.Id == id)).GetValueOrDefault();
+            if (id == null || _context.LivrosModel == null)
+            {
+                return NotFound();
+            }
+
+            var livroModel = await _context.LivrosModel.FindAsync(id);
+            if (livroModel == null)
+            {
+                return NotFound();
+            }
+            return View(livroModel);
+        }
+
+        // POST: LivroModels/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reativar(Guid id, LivroModel livroModel)
+        {
+            if (id != livroModel.Id)
+            {
+                return NotFound();
+            }
+            try
+            {
+                livroModel.Ativo = true;
+                _context.Update(livroModel);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LivroModelExists(livroModel.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -1,25 +1,21 @@
 ﻿@model IEnumerable<MVCBooktopia.Models.AluguelModel>
 
 @{
-    ViewData["Title"] = "Aluguéis Pendentes";
+    ViewData["Title"] = "Aluguéis Concluídos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-white text-center">Lista de Aluguéis Pendentes</h1>
-
-<div class="hstack gap-3">
-  <a class="btn btn-dark" asp-action="Create">Novo Aluguel</a>
-  <a class="btn btn-dark ms-auto" asp-action="Devolvidos">Alugueis Concluídos</a>
-</div>
+<h1>Lista de Aluguéis Concluídos</h1>
 
 <table class="table">
     <thead>
-        <tr id="tabela-aluguel">
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Cliente.Nome)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Livro.Titulo)
-            </th>           
+            </th>            
             <th>
                 @Html.DisplayNameFor(model => model.DataAluguel)
             </th>
@@ -36,10 +32,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
-            if(item.Devolvido == false)
+@foreach (var item in Model) {
+         @if (item.Devolvido == true)
             {
-                <tr id="tabela-aluguel" class="table-light">
+                 <tr id="tabela-aluguel" class="bg-light">
                     <td>
                         @Html.DisplayFor(modelItem => item.Cliente.Nome)
                     </td>
@@ -57,17 +53,13 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ValorTotal)
-                    </td>                
-                    
-                    <td>
-                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>    
                     </td>
-                    <td>
-                        <a class="btn btn-dark" asp-action="Devolver" asp-route-id="@item.Id">Devolver</a>
+                    <td>                  
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
                     </td>
+                    <td></td>
                 </tr>
             }
-            
-        }
+}
     </tbody>
 </table>

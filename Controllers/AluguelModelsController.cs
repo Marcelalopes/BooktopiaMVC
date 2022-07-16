@@ -29,6 +29,14 @@ namespace MVCBooktopia.Controllers
                           Problem("Entity set 'MVCBooktopiaContext.AluguelModel'  is null.");
         }
 
+        // GET: AluguelModels
+        public async Task<IActionResult> Devolvidos()
+        {
+            return _context.AlugueisModel != null ?
+                        View(await _context.AlugueisModel.ToListAsync()) :
+                        Problem("Entity set 'MVCBooktopiaContext.AluguelModel'  is null.");
+        }
+
         // GET: AluguelModels/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -69,8 +77,6 @@ namespace MVCBooktopia.Controllers
             _context.Add(aluguelModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
-            return View(aluguelModel);
         }
 
         // GET: AluguelModels/Edit/5

@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  
 }
 
 @media (min-width: 768px) {
@@ -15,5 +16,6 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: darkorchid;
+    background-color: #6566AF;
+    font-family: 'Comic Sans MS';
 }

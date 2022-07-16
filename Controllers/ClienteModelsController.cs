@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCBooktopia.Data;
 using MVCBooktopia.Models;
+using MVCBooktopia.Validações;
 
 namespace MVCBooktopia.Controllers
 {
@@ -61,12 +62,14 @@ namespace MVCBooktopia.Controllers
         public async Task<IActionResult> Create(ClienteModel clienteModel)
         {
             
-                clienteModel.Id = Guid.NewGuid();
-                _context.Add(clienteModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            
-            return View(clienteModel);
+            clienteModel.Id = Guid.NewGuid();
+            //if (!Validacoes.IsCpf(clienteModel.CPF))
+            //{
+            //    throw new Exception("CPF Inválido!");
+            //}
+            _context.Add(clienteModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ClienteModels/Edit/5
@@ -113,8 +116,6 @@ namespace MVCBooktopia.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-            
-            return View(clienteModel);
         }
 
         // GET: ClienteModels/Delete/5
