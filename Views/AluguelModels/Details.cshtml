@@ -4,11 +4,11 @@
     ViewData["Title"] = "Detalhes Aluguel";
 }
 
-<h1>Detalhes do Aluguel</h1>
+<h1 class="text-light text-center">Detalhes do Aluguel</h1>
 
 <div>
     <hr />
-    <dl class="row">
+    <dl class="row text-light">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Multa)
         </dt>
@@ -60,5 +60,5 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Index">Voltar</a>
+    <a class="btn btn-dark" asp-action="Index">Voltar</a>
 </div>

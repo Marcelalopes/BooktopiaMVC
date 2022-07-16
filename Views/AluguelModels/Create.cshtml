@@ -4,11 +4,11 @@
     ViewData["Title"] = "Novo Aluguel";
 }
 
-<h1>Criar Novo Aluguel</h1>
+<h1 class="text-center text-light">Criar Novo Aluguel</h1>
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -26,15 +26,17 @@
                 <select asp-for="LivroId" asp-items="ViewBag.LivroId" class="form-control" ></select>
                 <span asp-validation-for="LivroId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="btn-toolbar text-center" role="group">
+                <div class="form-group btn-group w-50 p-3">
+                    <input type="submit" value="Adicionar" class="btn btn-dark" />
+                </div>
+                <hr />
+                <div class="btn-group w-50 p-3">
+                    <a class="btn btn-outline-dark" asp-action="Index">Voltar</a>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

@@ -61,7 +61,7 @@ namespace MVCBooktopia.Controllers
             var clientes = _context.ClientesModel.ToList();
             ViewData["ClienteId"] = new SelectList(clientes, "Id", "Nome");
             var livros = _context.LivrosModel.ToList();
-            ViewData["LivroId"] = new SelectList(livros, "Id", "Titulo");
+            ViewData["LivroId"] = new SelectList(livros, "Id", "Titulo");           
             return View();
         }
 
