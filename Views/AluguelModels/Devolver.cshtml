@@ -4,11 +4,11 @@
     ViewData["Title"] = "Devolver Livro";
 }
 
-<h2 class="text-light text-center">Devolução de Livro</h2>
+<h1 class="text-center">Devolução de Livro</h1>
 
 <hr />
 <h6>Tem certeza que deseja devolver este livro?</h6>
-<div class="row text-light">
+<div class="row">
     <div class="col-md-4">
         <form asp-action="Devolver">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -45,11 +45,11 @@
             </div>
             <div class="btn-toolbar text-center" role="group">
     <div class="form-group btn-group  p-3">
-        <input type="submit" value="Devolver" class="btn btn-dark" />
+        <input type="submit" value="Devolver" class="btn text-light" style="background-color:#d98737" />
     </div>
     <hr />
     <div class="btn-group  p-3">
-        <a class="btn btn-outline-dark" asp-action="Index">Voltar</a>
+        <a class="btn text-light" style="background-color:#d98737" asp-action="Index">Voltar</a>
     </div>
 </div>
         </form>

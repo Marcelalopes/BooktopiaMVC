@@ -4,11 +4,11 @@
     ViewData["Title"] = "Detalhar Cliente";
 }
 
-<h1 class="text-center text-light">Detalhes do Cliente</h1>
+<h1 class="text-center">Detalhes do Cliente</h1>
 
 <div>
     <hr />
-    <dl class="row text-light">
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
@@ -61,10 +61,10 @@
 </div>
 <div class="btn-toolbar text-center" role="group">
     <div class="form-group btn-group  p-3">
-        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+        <a class="btn text-light" style="background-color:#d98737" asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
     </div>
     <hr />
     <div class="btn-group  p-3">
-        <a class="btn btn-outline-dark" asp-action="Index">Voltar</a>
+        <a class="btn text-light" style="background-color:#d98737" asp-action="Index">Voltar</a>
     </div>
 </div>

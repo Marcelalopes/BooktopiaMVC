@@ -4,14 +4,14 @@
     ViewData["Title"] = "Aluguéis Pendentes";
 }
 
-<h1 class="text-white text-center">Lista de Aluguéis Pendentes</h1>
+<h1 class="text-center">Lista de Aluguéis Pendentes</h1>
 
 <div class="hstack gap-3">
-  <a class="btn btn-dark" asp-action="Create">Novo Aluguel</a>
-  <a class="btn btn-dark ms-auto" asp-action="Devolvidos">Alugueis Concluídos</a>
+  <a class="btn text-light" style="background-color:#d98737" asp-action="Create">Novo Aluguel</a>
+  <a class="btn text-light ms-auto" style="background-color:#d98737" asp-action="Devolvidos">Alugueis Concluídos</a>
 </div>
 
-<table class="table">
+<table class="table table-striped bg-white">
     <thead>
         <tr id="tabela-aluguel">
             <th>
@@ -39,7 +39,7 @@
         @foreach (var item in Model) {
             if(item.Devolvido == false)
             {
-                <tr id="tabela-aluguel" class="table-light">
+                <tr id="tabela-aluguel">
                     <td>
                         @Html.DisplayFor(modelItem => item.Cliente.Nome)
                     </td>
@@ -60,10 +60,10 @@
                     </td>                
                     
                     <td>
-                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>    
+                        <a class="btn text-light" style="background-color:#d98737" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>    
                     </td>
                     <td>
-                        <a class="btn btn-dark" asp-action="Devolver" asp-route-id="@item.Id">Devolver</a>
+                        <a class="btn text-light" style="background-color:#d98737" asp-action="Devolver" asp-route-id="@item.Id">Devolver</a>
                     </td>
                 </tr>
             }

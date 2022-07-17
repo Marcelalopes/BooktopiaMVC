@@ -4,11 +4,11 @@
     ViewData["Title"] = "Novo Aluguel";
 }
 
-<h1 class="text-center text-light">Criar Novo Aluguel</h1>
+<h1 class="text-center">Criar Novo Aluguel</h1>
 
 <hr />
 <div class="row">
-    <div class="col-md-6">
+    <div class="col">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -28,11 +28,11 @@
             </div>
             <div class="btn-toolbar text-center" role="group">
                 <div class="form-group btn-group w-50 p-3">
-                    <input type="submit" value="Adicionar" class="btn btn-dark" />
+                    <input type="submit" value="Adicionar" class="btn text-light" style="background-color:#d98737" />
                 </div>
                 <hr />
                 <div class="btn-group w-50 p-3">
-                    <a class="btn btn-outline-dark" asp-action="Index">Voltar</a>
+                    <a class="btn text-light" style="background-color:#d98737" asp-action="Index">Voltar</a>
                 </div>
             </div>
         </form>

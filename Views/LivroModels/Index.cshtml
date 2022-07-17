@@ -4,13 +4,13 @@
     ViewData["Title"] = "Livros";
 }
 
-<h1 class="text-center text-light">Livros Disponíveis</h1>
+<h1 class="text-center">Livros Disponíveis</h1>
 
 <div class="hstack gap-3">
-  <a class="btn btn-dark" asp-action="Create">Novo Livro</a>
-  <a class="btn btn-dark ms-auto" asp-action="Desativados">Livros Desativados</a>
+  <a class="btn text-light" style="background-color:#d98737" asp-action="Create">Novo Livro</a>
+  <a class="btn text-light ms-auto" style="background-color:#d98737" asp-action="Desativados">Livros Desativados</a>
 </div><br />
-<table class="table table-striped table-bordered bg-white">
+<table class="table table-striped bg-white">
     <thead>
         <tr>
             <th>
@@ -58,11 +58,11 @@
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
-                        <a style="width:98px;" class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        <a style="width:98px; background-color:#d98737;" class="btn text-light" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
                         <div style="height:10px;"></div>
-                        <a style="width:98px;" class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
+                        <a style="width:98px; background-color:#d98737;" class="btn text-light" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
                         <div style="height:10px;"></div>
-                        <a style="width:98px;" class="btn btn-dark" asp-action="Desativar" asp-route-id="@item.Id">Desativar</a>
+                        <a style="width:98px; background-color:#d98737;" class="btn text-light" asp-action="Desativar" asp-route-id="@item.Id">Desativar</a>
                     </td>
                 </tr>
             }

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Baseet Bold';
+    src: url('Fonts/OnlineWebFonts_COM_71af09da0625bf0430f8000ad391e00c/29LT Baseet Variable/29LT Baseet Variable.ttf') format('truetype');
+}
+
 html {
   font-size: 14px;
   
@@ -16,6 +21,15 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: #6566AF;
+    background-color:#FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-family: 'Baseet Bold';
+}
+.p-home {
+    font-family: 'Baseet Bold';
+    font-size: 67px;
+    color: #d98737;
 }

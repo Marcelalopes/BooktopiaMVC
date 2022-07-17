@@ -4,12 +4,12 @@
     ViewData["Title"] = "Clientes";
 }
 
-<h3 class="text-center text-white">Lista de Clientes</h3>
+<h1 class="text-center">Lista de Clientes</h1>
 
 <p>
-    <a class="btn btn-dark" asp-action="Create">Novo Cliente</a>
+    <a class="btn text-light" style="background-color:#d98737" asp-action="Create">Novo Cliente</a>
 </p>
-<table id="tabela-cliente" class="table table-striped table-bordered bg-white">
+<table id="tabela-cliente" class="table table-striped bg-white">
     <thead>
         <tr>
             <th>
@@ -67,10 +67,10 @@
                 @Html.DisplayFor(modelItem => item.Cidade)
             </td>
             <td>
-                <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn text-light" style="background-color:#d98737" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
             </td>
             <td>
-                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
+                <a class="btn text-light" style="background-color:#d98737" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
             </td>
         </tr>
 }

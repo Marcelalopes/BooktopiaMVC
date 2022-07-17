@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-center text-light">Desativar Livro</h1>
+<h1 class="text-center">Desativar Livro</h1>
 
 <h6>Você deseja realmente desativar este livro?</h6>
 <hr />
-<div class="row text-light">
+<div class="row">
     <div class="col">
         <form asp-action="Desativar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -64,11 +64,11 @@
             </div>
             <div class="btn-toolbar text-center" role="group">
                 <div class="form-group btn-group w-50 p-3">
-                    <input type="submit" value="Desativar" class="btn btn-dark" />
+                    <input type="submit" value="Desativar" class="btn text-light" style="background-color:#d98737" />
                 </div>
                 <hr />
                 <div class="btn-group w-50 p-3">
-                    <a class="btn btn-outline-dark" asp-action="Index">Voltar</a>
+                    <a class="btn text-light" style="background-color:#d98737" asp-action="Index">Voltar</a>
                 </div>
             </div>
         </form>
