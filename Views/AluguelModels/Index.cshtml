@@ -7,8 +7,8 @@
 <h1 class="text-center">Lista de Aluguéis Pendentes</h1>
 
 <div class="hstack gap-3">
-  <a class="btn text-light" style="background-color:#d98737" asp-action="Create">Novo Aluguel</a>
-  <a class="btn text-light ms-auto" style="background-color:#d98737" asp-action="Devolvidos">Alugueis Concluídos</a>
+  <a class="btn text-light" style="background-color:#d98737" asp-action="Create"><i class="bi bi-plus-square"></i></a>
+  <a class="btn" style="color:#d98737; border: 1px solid #d98737;" asp-action="Devolvidos">Alugueis Concluídos</a>
 </div>
 
 <table class="table table-striped bg-white">
@@ -32,6 +32,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ValorTotal)
             </th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -60,10 +61,10 @@
                     </td>                
                     
                     <td>
-                        <a class="btn text-light" style="background-color:#d98737" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>    
+                        <a class="btn text-light" style="background-color:#d98737" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a>    
                     </td>
                     <td>
-                        <a class="btn text-light" style="background-color:#d98737" asp-action="Devolver" asp-route-id="@item.Id">Devolver</a>
+                        <a class="btn text-light" style="background-color:#d98737" asp-action="Devolver" asp-route-id="@item.Id"><i class="bi bi-check-square"></i></a>
                     </td>
                 </tr>
             }

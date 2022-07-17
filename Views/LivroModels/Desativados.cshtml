@@ -55,10 +55,10 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                <a asp-action="Reativar" asp-route-id="@item.Id" class="btn text-light" style="background-color:#d98737">Reativar</a>
+                <a asp-action="Reativar" asp-route-id="@item.Id" class="btn" style="color:#d98737; border: 1px solid #d98737;">Reativar</a>
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn text-light" style="background-color:#d98737">Detalhar</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn text-light" style="background-color:#d98737"><i class="bi bi-card-text"></i></a>
             </td>
         </tr>   
             }            

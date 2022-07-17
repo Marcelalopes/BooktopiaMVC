@@ -7,7 +7,7 @@
 <h1 class="text-center">Lista de Clientes</h1>
 
 <p>
-    <a class="btn text-light" style="background-color:#d98737" asp-action="Create">Novo Cliente</a>
+    <a class="btn text-light" style="background-color:#d98737" asp-action="Create"><i class="bi bi-plus-square"></i></a>
 </p>
 <table id="tabela-cliente" class="table table-striped bg-white">
     <thead>
@@ -67,10 +67,10 @@
                 @Html.DisplayFor(modelItem => item.Cidade)
             </td>
             <td>
-                <a class="btn text-light" style="background-color:#d98737" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn text-light" style="background-color:#d98737" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
             </td>
             <td>
-                <a class="btn text-light" style="background-color:#d98737" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
+                <a class="btn text-light" style="background-color:#d98737" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a>
             </td>
         </tr>
 }

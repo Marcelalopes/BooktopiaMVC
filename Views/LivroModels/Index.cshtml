@@ -7,8 +7,8 @@
 <h1 class="text-center">Livros Disponíveis</h1>
 
 <div class="hstack gap-3">
-  <a class="btn text-light" style="background-color:#d98737" asp-action="Create">Novo Livro</a>
-  <a class="btn text-light ms-auto" style="background-color:#d98737" asp-action="Desativados">Livros Desativados</a>
+  <a class="btn text-light" style="background-color:#d98737" asp-action="Create"><i class="bi bi-plus-square"></i></a>
+  <a class="btn" style="color:#d98737; border: 1px solid #d98737;" asp-action="Desativados">Livros Desativados</a>
 </div><br />
 <table class="table table-striped bg-white">
     <thead>
@@ -58,11 +58,11 @@
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
-                        <a style="width:98px; background-color:#d98737;" class="btn text-light" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        <a style="background-color:#d98737;" class="btn text-light" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
                         <div style="height:10px;"></div>
-                        <a style="width:98px; background-color:#d98737;" class="btn text-light" asp-action="Details" asp-route-id="@item.Id">Detalhar</a>
+                        <a style="background-color:#d98737;" class="btn text-light" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a>
                         <div style="height:10px;"></div>
-                        <a style="width:98px; background-color:#d98737;" class="btn text-light" asp-action="Desativar" asp-route-id="@item.Id">Desativar</a>
+                        <a style="background-color:#d98737;" class="btn text-light" asp-action="Desativar" asp-route-id="@item.Id"><i class="bi bi-x-square"></i></a>
                     </td>
                 </tr>
             }
