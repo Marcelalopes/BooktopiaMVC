@@ -131,9 +131,16 @@ namespace MVCBooktopia.Controllers
                 }
                 var livro = await _context.LivrosModel.FindAsync(aluguelModel.LivroId);
                 decimal valorLivro = livro.Valor;
-                aluguelModel.ValorTotal = valorLivro + aluguelModel.Multa;                
-               
+                aluguelModel.ValorTotal = valorLivro + aluguelModel.Multa;
+
+                livro.Estoque += 1;
+                if (livro.Estoque > 0)
+                {
+                    livro.Ativo = true;
+                }
+
                 _context.Update(aluguelModel);
+                _context.Update(livro);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
