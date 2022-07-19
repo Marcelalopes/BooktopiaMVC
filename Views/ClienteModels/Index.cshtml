@@ -6,10 +6,11 @@
 
 <h1 class="text-center">Lista de Clientes</h1>
 
-<p>
-    <a class="btn text-light" style="background-color:#d98737" asp-action="Create"><i class="bi bi-plus-square"></i></a>
-</p>
-<table id="tabela-cliente" class="table table-striped bg-white">
+<div>
+  <a class="btn text-light" style="background-color:#d98737" asp-action="Create"><i class="bi bi-plus-square"></i></a>
+</div>
+
+<table class="table uk-table uk-table-hover uk-table-striped" id="tabelas">
     <thead>
         <tr>
             <th>
@@ -36,6 +37,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Cidade)
             </th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -76,3 +78,4 @@
 }
     </tbody>
 </table>
+

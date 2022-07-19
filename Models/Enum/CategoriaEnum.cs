@@ -1,6 +1,9 @@
 ﻿
 namespace MVCBooktopia.Models.Enum
 {
+    /// <summary>
+    /// Classe de enum de categorias
+    /// </summary>
     public enum CategoriaEnum
     {
         Ação,

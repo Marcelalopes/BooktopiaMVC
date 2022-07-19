@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCBooktopia.Data;
 using MVCBooktopia.Models;
-using MVCBooktopia.Validações;
 
 namespace MVCBooktopia.Controllers
 {

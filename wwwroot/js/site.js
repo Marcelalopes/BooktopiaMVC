@@ -3,4 +3,16 @@
 
 // Write your JavaScript code.
 
-
+$(document).ready(function () {
+    $('#tabelas').DataTable({
+        lengthChange: false,
+        paging: true,
+        searching: true,
+        responsive: true,
+        pageLength:4,
+        language: {
+            url:'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
+        }
+    }
+    );
+});

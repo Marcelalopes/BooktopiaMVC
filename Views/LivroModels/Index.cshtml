@@ -9,8 +9,8 @@
 <div class="hstack gap-3">
   <a class="btn text-light" style="background-color:#d98737" asp-action="Create"><i class="bi bi-plus-square"></i></a>
   <a class="btn" style="color:#d98737; border: 1px solid #d98737;" asp-action="Desativados">Livros Desativados</a>
-</div><br />
-<table class="table table-striped bg-white">
+</div>
+<table class="table uk-table uk-table-hover uk-table-striped" id="tabelas">
     <thead>
         <tr>
             <th>
@@ -62,7 +62,7 @@
                         <div style="height:10px;"></div>
                         <a style="background-color:#d98737;" class="btn text-light" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a>
                         <div style="height:10px;"></div>
-                        <a style="background-color:#d98737;" class="btn text-light" asp-action="Desativar" asp-route-id="@item.Id"><i class="bi bi-x-square"></i></a>
+                        <a style="background-color:#d98737;" class="btn text-light" asp-action="Desativar" asp-route-id="@item.Id"><i class="bi bi-trash3"></i></a>
                     </td>
                 </tr>
             }

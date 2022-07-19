@@ -14,10 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\marce\.nuget\packages\datatables.net-dt\1.12.1\contentFiles\any\any\wwwroot\css\jquery.dataTables.css" />
+    <Content Remove="C:\Users\marce\.nuget\packages\datatables.net-dt\1.12.1\contentFiles\any\any\wwwroot\css\jquery.dataTables.min.css" />
+    <Content Remove="C:\Users\marce\.nuget\packages\datatables.net-dt\1.12.1\contentFiles\any\any\wwwroot\js\dataTables.dataTables.d.ts" />
+    <Content Remove="C:\Users\marce\.nuget\packages\datatables.net-dt\1.12.1\contentFiles\any\any\wwwroot\js\dataTables.dataTables.js" />
+    <Content Remove="C:\Users\marce\.nuget\packages\datatables.net-dt\1.12.1\contentFiles\any\any\wwwroot\js\dataTables.dataTables.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\Imagens\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="datatables.net-dt" Version="1.12.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
