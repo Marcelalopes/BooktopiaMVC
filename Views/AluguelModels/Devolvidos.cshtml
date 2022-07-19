@@ -32,8 +32,9 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-         @if (item.Devolvido == true)
+        @foreach (var item in Model) 
+        {
+            @if (item.Devolvido == true)
             {
                  <tr id="tabela-aluguel" >
                     <td>
@@ -60,10 +61,8 @@
                 </tr>                
             }
             
-}
-
-    </tbody>
-    
+        }
+    </tbody>    
 </table>
 <div class="btn-group w-25 p-3">
     <a class="btn text-light" style="background-color:#d98737" asp-action="Index">Voltar</a>

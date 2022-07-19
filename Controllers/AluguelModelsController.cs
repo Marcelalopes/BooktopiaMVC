@@ -121,7 +121,7 @@ namespace MVCBooktopia.Controllers
                 {
                     aluguelModel.Multa = 0;
                 }
-                var livro = _context.LivrosModel.Find(aluguelModel.LivroId);
+                var livro = await _context.LivrosModel.FindAsync(aluguelModel.LivroId);
                 decimal valorLivro = livro.Valor;
                 aluguelModel.ValorTotal = valorLivro + aluguelModel.Multa;                
                
@@ -140,46 +140,7 @@ namespace MVCBooktopia.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-            //return View(aluguelModel);
         }
-
-        // GET: AluguelModels/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
-        {
-            if (id == null || _context.AlugueisModel == null)
-            {
-                return NotFound();
-            }
-
-            var aluguelModel = await _context.AlugueisModel
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (aluguelModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(aluguelModel);
-        }
-
-        // POST: AluguelModels/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
-        {
-            if (_context.AlugueisModel == null)
-            {
-                return Problem("Entity set 'MVCBooktopiaContext.AluguelModel'  is null.");
-            }
-            var aluguelModel = await _context.AlugueisModel.FindAsync(id);
-            if (aluguelModel != null)
-            {
-                _context.AlugueisModel.Remove(aluguelModel);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
 
         private bool AluguelModelExists(Guid id)
         {

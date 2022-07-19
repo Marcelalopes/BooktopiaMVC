@@ -11,12 +11,12 @@ namespace MVCBooktopia.Models
         [DisplayName("Nome do Cliente")]
         public string Nome { get; set; }
         [MaxLength(50)]
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Email Inválido! Ex: exemplo@gmail.com")]
         public string Email { get; set; }
         [MaxLength(14)]
         public string CPF { get; set; }
         [MaxLength(9)]
-        [DataType(DataType.PostalCode)]
+        [DataType(DataType.PostalCode, ErrorMessage ="CEP Inválido! Ex: 64255-000")]
         public string CEP { get; set; }
         [MaxLength(50)]
         public string Logradouro { get; set; }

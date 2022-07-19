@@ -62,10 +62,6 @@ namespace MVCBooktopia.Controllers
         {
             
             clienteModel.Id = Guid.NewGuid();
-            //if (!Validacoes.IsCpf(clienteModel.CPF))
-            //{
-            //    throw new Exception("CPF Inválido!");
-            //}
             _context.Add(clienteModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -117,42 +113,6 @@ namespace MVCBooktopia.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: ClienteModels/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
-        {
-            if (id == null || _context.ClientesModel == null)
-            {
-                return NotFound();
-            }
-
-            var clienteModel = await _context.ClientesModel
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (clienteModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(clienteModel);
-        }
-
-        // POST: ClienteModels/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
-        {
-            if (_context.ClientesModel == null)
-            {
-                return Problem("Entity set 'MVCBooktopiaContext.ClienteModel'  is null.");
-            }
-            var clienteModel = await _context.ClientesModel.FindAsync(id);
-            if (clienteModel != null)
-            {
-                _context.ClientesModel.Remove(clienteModel);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         private bool ClienteModelExists(Guid id)
         {
