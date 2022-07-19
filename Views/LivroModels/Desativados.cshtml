@@ -28,6 +28,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
             <th></th>
             <th></th>
         </tr>
@@ -54,6 +57,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
             </td>
             <td>
                 <a asp-action="Reativar" asp-route-id="@item.Id" class="btn" style="color:#d98737; border: 1px solid #d98737;">Reativar</a>

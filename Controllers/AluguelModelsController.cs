@@ -74,7 +74,15 @@ namespace MVCBooktopia.Controllers
         {
             
             aluguelModel.Id = Guid.NewGuid();
+            var livro = await _context.LivrosModel.FindAsync(aluguelModel.LivroId);
+            livro.Estoque -= 1;
+            if(livro.Estoque == 0)
+            {
+                livro.Ativo = false;
+            }
+
             _context.Add(aluguelModel);
+            _context.Update(livro);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

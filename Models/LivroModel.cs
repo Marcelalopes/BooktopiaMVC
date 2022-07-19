@@ -22,6 +22,7 @@ namespace MVCBooktopia.Models
         [DataType(DataType.Currency)]
         public decimal Valor { get; set; }
         public Boolean Ativo { get; set; } = true;
+        public int Estoque { get; set; }
         public virtual List<AluguelModel> Alugueis { get; set; }
     }
 }
